@@ -1,0 +1,16 @@
+{
+  "name": "kana",
+  "version": "1.0.0",
+  "description": "Japanese Kana Utility",
+  "main": "./dist/main.js",
+  "type": "./dist/main.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "Gorilla Morimoto",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^3.7.2"
+  }
+}

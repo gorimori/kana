@@ -1,0 +1,3 @@
+# kana
+
+Japanese Kana Utility.
