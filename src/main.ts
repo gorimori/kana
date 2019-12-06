@@ -1,5 +1,24 @@
 const BETWEEN_KATAKANA_HIRAGANA = 96;
 
+/**
+ * converts the first character to a Katakana (if it is Hiragana).
+ *
+ * if the argument is not Hiragane, it would return unexpected value.
+ * to avoid this, use isHiragana().
+ *
+ * @example
+ * // returns 'ア'
+ * hira2kata('あ')
+ *
+ * @example
+ * // returns '吷'
+ * hira2kata('受')
+ *
+ * @example
+ * // returns '受'
+ * const c = '受';
+ * isHiragana(c) ? hira2kana(c) : c;
+ */
 export const hira2kata = (c: string): string =>
   String.fromCodePoint(c.codePointAt(0)! + BETWEEN_KATAKANA_HIRAGANA);
 
