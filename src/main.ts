@@ -14,17 +14,17 @@ export const kata2hiraAll = (s: string): string =>
 
 const firstHiragana = 12353; // 'ぁ'.codePointAt(0);
 const lastHiragana = 12438; //'ゖ'.codePointAt(0);
-export function isHiragana(c: string): boolean {
+export const isHiragana = (c: string): boolean => {
   const codePoint = c.codePointAt(0)!;
   return firstHiragana <= codePoint && codePoint <= lastHiragana;
-}
+};
 
 const firstKatakana = 12449; //'ァ'.codePointAt(0)!;
 const lastKatakana = 12538; //'ヺ'.codePointAt(0)!;
-export function isKatakana(c: string): boolean {
+export const isKatakana = (c: string): boolean => {
   const codePoint = c.codePointAt(0)!;
   return firstKatakana <= codePoint && codePoint <= lastKatakana;
-}
+};
 
 export const isKana = (c: string): boolean => isHiragana(c) || isKatakana(c);
 

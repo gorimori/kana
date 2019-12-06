@@ -5,15 +5,15 @@ export const kata2hira = (c) => String.fromCodePoint(c.codePointAt(0) - BETWEEN_
 export const kata2hiraAll = (s) => [...s].map(kata2hira).join('');
 const firstHiragana = 12353;
 const lastHiragana = 12438;
-export function isHiragana(c) {
+export const isHiragana = (c) => {
     const codePoint = c.codePointAt(0);
     return firstHiragana <= codePoint && codePoint <= lastHiragana;
-}
+};
 const firstKatakana = 12449;
 const lastKatakana = 12538;
-export function isKatakana(c) {
+export const isKatakana = (c) => {
     const codePoint = c.codePointAt(0);
     return firstKatakana <= codePoint && codePoint <= lastKatakana;
-}
+};
 export const isKana = (c) => isHiragana(c) || isKatakana(c);
 export const isKanaAll = (s) => [...s].every(isKana);
