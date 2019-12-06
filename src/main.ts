@@ -1,9 +1,9 @@
 const BETWEEN_KATAKANA_HIRAGANA = 96;
 
 /**
- * converts the first character to a Katakana (if it is Hiragana).
+ * converts the first character of the argument to a Katakana (if it is Hiragana).
  *
- * if the argument is not Hiragane, it would return unexpected value.
+ * if the argument is not Hiragana, it would return unexpected value.
  * to avoid this, use isHiragana().
  *
  * @example
