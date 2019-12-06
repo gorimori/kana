@@ -1,10 +1,10 @@
 const BETWEEN_KATAKANA_HIRAGANA = 96;
 
-export const kana2hira = (c: string): string =>
+export const hira2kata = (c: string): string =>
   String.fromCodePoint(c.codePointAt(0)! + BETWEEN_KATAKANA_HIRAGANA);
 
-export const kana2hiraAll = (s: string): string =>
-  [...s].map(kana2hira).join('');
+export const hira2kataAll = (s: string): string =>
+  [...s].map(hira2kata).join('');
 
 export const kata2hira = (c: string): string =>
   String.fromCodePoint(c.codePointAt(0)! - BETWEEN_KATAKANA_HIRAGANA);
