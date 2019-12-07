@@ -23,7 +23,7 @@ export const hira2kata = (c: string): string =>
   String.fromCodePoint(c.codePointAt(0)! + BETWEEN_KATAKANA_HIRAGANA);
 
 export const hira2kataAll = (s: string): string =>
-  [...s].map(hira2kata).join('');
+  [...s].map(c => (isHiragana(c) ? hira2kata(c) : c)).join('');
 
 export const kata2hira = (c: string): string =>
   String.fromCodePoint(c.codePointAt(0)! - BETWEEN_KATAKANA_HIRAGANA);
