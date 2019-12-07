@@ -22,6 +22,19 @@ const BETWEEN_KATAKANA_HIRAGANA = 96;
 export const hira2kata = (c: string): string =>
   String.fromCodePoint(c.codePointAt(0)! + BETWEEN_KATAKANA_HIRAGANA);
 
+/**
+ * converts all Hiragana characters in the argument to Katakana.
+ *
+ * non-Hiragana characters are keep untouched.
+ *
+ * @example
+ * // returns 'コンニチハ'
+ * hira2kataAll('こんにちは');
+ *
+ * @example
+ * // returns '今日ハ'
+ * hira2kataAll('今日は');
+ */
 export const hira2kataAll = (s: string): string =>
   [...s].map(c => (isHiragana(c) ? hira2kata(c) : c)).join('');
 
