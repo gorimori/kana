@@ -15,8 +15,8 @@ const BETWEEN_KATAKANA_HIRAGANA = 96;
  * hira2kata('受')
  *
  * @example
- * // returns '受'
  * const c = '受';
+ * // returns '受'
  * isHiragana(c) ? hira2kana(c) : c;
  */
 export const hira2kata = (c: string): string =>
