@@ -1,4 +1,4 @@
-import { hira2kata, hira2kataAll } from './main.js';
+import { hira2kata, hira2kataAll, kata2hira } from './main.js';
 
 type Case = {
   input: string;
@@ -53,9 +53,35 @@ const test_hira2kataAll = () => {
   }
 };
 
+const test_kata2hira = () => {
+  const cases: Case[] = [
+    { input: 'ア', expected: 'あ' },
+    { input: 'ヲ', expected: 'を' },
+    { input: 'コ', expected: 'こ' },
+    { input: 'Ú', expected: 'z' },
+    { input: '慻', expected: '愛' }
+  ];
+
+  const failedCases = cases.filter(
+    ({ input, expected }) => kata2hira(input) !== expected
+  );
+
+  if (failedCases.length <= 0) {
+    return;
+  }
+
+  console.error('[Failed]: kata2hira()');
+  for (const { input, expected } of failedCases) {
+    console.error(
+      `input: ${input}, expected ${expected}, but got ${hira2kata(input)}`
+    );
+  }
+};
+
 const main = () => {
   test_hira2kata();
   test_hira2kataAll();
+  test_kata2hira();
 };
 
 main();

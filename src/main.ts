@@ -3,7 +3,7 @@ const BETWEEN_KATAKANA_HIRAGANA = 96;
 /**
  * converts the first character of the argument to a Katakana (if it is Hiragana).
  *
- * if the argument is not Hiragana, it would return unexpected value.
+ * if the character is not Hiragana, it would return unexpected value.
  * to avoid this, use isHiragana().
  *
  * @example
@@ -38,6 +38,25 @@ export const hira2kata = (c: string): string =>
 export const hira2kataAll = (s: string): string =>
   [...s].map(c => (isHiragana(c) ? hira2kata(c) : c)).join('');
 
+/**
+ * converts the first character of the argument to a Hiragana (if it is Katakana).
+ *
+ * if the character is not Katakana, it would return unexpected value.
+ * to avoid this, use isKatakana().
+ *
+ * @example
+ * // returns 'あ'
+ * kata2hira('ア')
+ *
+ * @example
+ * // returns '受'
+ * hira2kata('吷')
+ *
+ * @example
+ * const c = '受';
+ * // returns '受'
+ * isKatakana(c) ? kata2hira(c) : c;
+ */
 export const kata2hira = (c: string): string =>
   String.fromCodePoint(c.codePointAt(0)! - BETWEEN_KATAKANA_HIRAGANA);
 
