@@ -48,7 +48,7 @@ const test_hira2kataAll = () => {
   console.error('[Failed]: hira2kata()');
   for (const { input, expected } of failedCases) {
     console.error(
-      `input: ${input}, expected ${expected}, but got ${hira2kata(input)}`
+      `input: ${input}, expected ${expected}, but got ${hira2kataAll(input)}`
     );
   }
 };
@@ -73,7 +73,7 @@ const test_kata2hira = () => {
   console.error('[Failed]: kata2hira()');
   for (const { input, expected } of failedCases) {
     console.error(
-      `input: ${input}, expected ${expected}, but got ${hira2kata(input)}`
+      `input: ${input}, expected ${expected}, but got ${kata2hira(input)}`
     );
   }
 };
