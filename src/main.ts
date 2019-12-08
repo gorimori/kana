@@ -61,7 +61,7 @@ export const kata2hira = (c: string): string =>
   String.fromCodePoint(c.codePointAt(0)! - BETWEEN_KATAKANA_HIRAGANA);
 
 export const kata2hiraAll = (s: string): string =>
-  [...s].map(kata2hira).join('');
+  [...s].map(c => (isKatakana(c) ? kata2hira : c)).join('');
 
 const firstHiragana = 12353; // 'ぁ'.codePointAt(0);
 const lastHiragana = 12438; //'ゖ'.codePointAt(0);
