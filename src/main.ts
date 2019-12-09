@@ -99,6 +99,11 @@ export const isHiragana = (c: string): boolean => {
 };
 
 /**
+ * returns whether all characters of the argument are Hiragana.
+ */
+export const isHiraganaAll = (s: string): boolean => [...s].every(isHiragana);
+
+/**
  * Code point of 'ァ', first Katakana in Unicode.
  *
  * 'ァ'.codePointAt(0)
@@ -119,6 +124,11 @@ export const isKatakana = (c: string): boolean => {
   const codePoint = c.codePointAt(0)!;
   return firstKatakana <= codePoint && codePoint <= lastKatakana;
 };
+
+/**
+ * returns whether all characters of the argument are Katakana.
+ */
+export const isKatakanaAll = (s: string): boolean => [...s].every(isKatakana);
 
 /**
  * returns whether the first character of

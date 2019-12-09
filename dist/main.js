@@ -9,11 +9,13 @@ export const isHiragana = (c) => {
     const codePoint = c.codePointAt(0);
     return firstHiragana <= codePoint && codePoint <= lastHiragana;
 };
+export const isHiraganaAll = (s) => [...s].every(isHiragana);
 const firstKatakana = 12449;
 const lastKatakana = 12538;
 export const isKatakana = (c) => {
     const codePoint = c.codePointAt(0);
     return firstKatakana <= codePoint && codePoint <= lastKatakana;
 };
+export const isKatakanaAll = (s) => [...s].every(isKatakana);
 export const isKana = (c) => isHiragana(c) || isKatakana(c);
 export const isKanaAll = (s) => [...s].every(isKana);
