@@ -76,20 +76,58 @@ export const kata2hira = (c: string): string =>
 export const kata2hiraAll = (s: string): string =>
   [...s].map(c => (isKatakana(c) ? kata2hira(c) : c)).join('');
 
-const firstHiragana = 12353; // 'ぁ'.codePointAt(0);
-const lastHiragana = 12438; //'ゖ'.codePointAt(0);
+/**
+ * Code point of 'ぁ', first Hiragana in Unicode.
+ *
+ * 'ぁ'.codePointAt(0)
+ */
+const firstHiragana = 12353;
+
+/**
+ * Code point of 'ゖ', last Hiragana in Unicode.
+ *
+ * 'ゖ'.codePointAt(0)
+ */
+const lastHiragana = 12438;
+
+/**
+ * returns whether the first character of the argument is Hiragana.
+ */
 export const isHiragana = (c: string): boolean => {
   const codePoint = c.codePointAt(0)!;
   return firstHiragana <= codePoint && codePoint <= lastHiragana;
 };
 
-const firstKatakana = 12449; //'ァ'.codePointAt(0)!;
-const lastKatakana = 12538; //'ヺ'.codePointAt(0)!;
+/**
+ * Code point of 'ァ', first Katakana in Unicode.
+ *
+ * 'ァ'.codePointAt(0)
+ */
+const firstKatakana = 12449;
+
+/**
+ * Code point of 'ヺ', last Katakana in Unicode.
+ *
+ * 'ヺ'.codePointAt(0)
+ */
+const lastKatakana = 12538;
+
+/**
+ * returns whether the first character of the argument is Katakana.
+ */
 export const isKatakana = (c: string): boolean => {
   const codePoint = c.codePointAt(0)!;
   return firstKatakana <= codePoint && codePoint <= lastKatakana;
 };
 
+/**
+ * returns whether the first character of
+ * the argument is Kana (Hiragana or Katakana).
+ */
 export const isKana = (c: string): boolean => isHiragana(c) || isKatakana(c);
 
+/**
+ * returns whether all characters of
+ * the argument is Kana (Hiragana or Katakana).
+ */
 export const isKanaAll = (s: string): boolean => [...s].every(isKana);
